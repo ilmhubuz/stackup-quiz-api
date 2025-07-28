@@ -2,8 +2,8 @@ namespace Models;
 
 public class McqQuestion : Question
 {
-    public string AnswerKey { get; set; }
-    public Dictionary<string, string> Options { get; init; }
+    public required string AnswerKey { get; set; }
+    public required Dictionary<string, string> Options { get; init; }
 
     public override double CheckAnswer(string answer, double elapsedSec)
     {

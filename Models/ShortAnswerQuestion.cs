@@ -2,7 +2,7 @@ namespace Models;
 
 public class ShortAnswerQuestion : Question
 {
-    public string CorrectAnswer { get; set; }
+    public required string CorrectAnswer { get; set; }
 
     public override double CheckAnswer(string answer, double elapsedSec)
     {

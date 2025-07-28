@@ -18,6 +18,7 @@ Thumbs.db
 
 # VS Code
 .vscode/
+.qodo
 
 # Rider
 .idea/

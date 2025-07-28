@@ -1,11 +1,11 @@
 namespace Models;
 
-public class Question
+public abstract class Question
 {
     public int Id { get; set; }
     public EQuestiontype EQuestiontype { get; set; }
-    public string Prompt { get; set; }
+    public required string Prompt { get; set; }
     public int? TimeLimitSeconds { get; set; }
 
-    abstract double CheckAnswer(string answer, double elapsedSec);
+    public abstract double CheckAnswer(string answer, double elapsedSec);
 }
