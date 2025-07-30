@@ -1,0 +1,14 @@
+
+@host = http://localhost:5094
+
+POST {{host}}/api/quiz
+Content-Type: application/json
+
+{
+  "Title": "Test Quiz 5", 
+  "Description": "Bu test Quiz",
+  "state": "disabled"
+}
+
+
+###
