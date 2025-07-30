@@ -1,0 +1,19 @@
+namespace stackup_quiz_api.Dtos;
+
+public class CreateQuizDto
+{
+    public required string Title { get; set; }
+    public string? Description { get; set; }
+    public QuizState State { get; set; }
+    public DateTimeOffset? StartsAt { get; set; }
+    public DateTimeOffset? EndsAt { get; set; }
+    public bool IsPrivate { get; set; }
+    public string? Password { get; set; }
+}
+
+public enum QuizState
+{
+    Active = 0,
+    Disabled,
+    Deleted
+}

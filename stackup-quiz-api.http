@@ -1,6 +1,28 @@
 @Host= http://localhost:5264
 
+POST {{Host}}/api/quiz?hello=world
+Content-Type: application/json
+
+{
+    "title":"Quiz 10",
+    "description": "Full quiz part",
+    "state": 1
+}
+###
 GET {{Host}}/api/quiz
-Accept: application/json
+###
+GET {{Host}}/api/quiz/4
+###
+PUT  {{Host}}/api/quiz/2
+Content-Type: application/json
+
+{
+    "title":"updated quiz 2",
+    "description": "Full quiz part",
+    "state": 0
+}
+
+
+
 
 
