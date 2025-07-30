@@ -1,6 +1,6 @@
 @Host= http://localhost:5264
 
-GET {{Host}}/weatherforecast/
+GET {{Host}}/api/quiz
 Accept: application/json
 
 
