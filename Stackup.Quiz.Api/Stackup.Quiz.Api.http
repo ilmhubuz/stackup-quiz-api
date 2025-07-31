@@ -1,6 +1,26 @@
 @Host = http://localhost:5226
 
-GET {{Host}}/weatherforecast/
-Accept: application/json
+POST {{Host}}/api/quiz?hello=world
+Content-Type: application/json
 
+{
+    "title": "Test quiz 3",
+    "description": "Bu test quiz",
+    "state": "disabled"
+}
+###
+GET {{Host}}/api/quiz
+###
+
+GET {{Host}}/api/quiz/2
+###
+
+PUT {{Host}}/api/quiz/3
+Content-Type: application/json
+
+{
+    "title": "Updated quiz",
+    "description": "Bu test quiz",
+    "state": "active"
+}
 ###
