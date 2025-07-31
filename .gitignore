@@ -1,0 +1,79 @@
+## Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+*.log
+
+## User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## VS Code settings
+.vscode/
+
+## Rider settings
+.idea/
+
+## Visual Studio temporary files
+*.vs/
+.vs/
+
+## OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Package managers
+packages/
+*.nupkg
+*.snupkg
+
+## Compiled DLLs
+*.dll
+*.exe
+*.app
+*.pdb
+
+## NuGet
+project.lock.json
+project.fragment.lock.json
+*.nuspec
+
+## Entity Framework
+Migrations/
+
+## Publish output
+publish/
+out/
+artifacts/
+
+## Coverage & test results
+TestResults/
+*.coverage
+*.coveragexml
+*.trx
+
+## Others
+*.cache
+*.db
+*.bak
+*.tmp
+*.swp
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+*.DotCover
+
+# GitHub Copilot secret storage
+copilot-secrets.json
