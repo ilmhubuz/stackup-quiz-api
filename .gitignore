@@ -75,5 +75,5 @@ _ReSharper*/
 *.DotSettings.user
 *.DotCover
 
-# GitHub Copilot secret storage
+# GitHub Copilot secret storage.
 copilot-secrets.json
