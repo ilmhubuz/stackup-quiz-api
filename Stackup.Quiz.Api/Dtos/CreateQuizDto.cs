@@ -14,10 +14,3 @@ public class CreateQuizDto
     public bool IsPrivate { get; set; }
     public string? Password { get; set; }
 }
-
-public enum QuizState
-{
-    Active,
-    Disabled,
-    Deleted
-}
