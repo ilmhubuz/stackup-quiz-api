@@ -1,13 +1,14 @@
 using FluentValidation;
+using stackup_quiz_api.Abstraction;
 using stackup_quiz_api.Dtos;
 
 namespace stackup_quiz_api.Validators;
 
-public class CreateQuizValidator : AbstractValidator<CreateQuizDto>
+public class UpdateQuizValidator : AbstractValidator<UpdateQuizDto>
 {
-    public CreateQuizValidator()
+    public UpdateQuizValidator(IQuizService service)
     {
-        ValidatorOptions.Global.DefaultClassLevelCascadeMode = CascadeMode.Stop;
+        // ValidatorOptions.Global.DefaultClassLevelCascadeMode = CascadeMode.Stop;
 
         RuleFor(q => q.Title)
             .MinimumLength(4)
@@ -15,10 +16,9 @@ public class CreateQuizValidator : AbstractValidator<CreateQuizDto>
 
         RuleFor(q => q.Description)
             .MaximumLength(100);
-
         RuleFor(q => q.State)
-            .NotEmpty()
-            .WithMessage("State is required");
+            .IsInEnum();
+
         RuleFor(q => q.StartsAt)
             .NotEmpty()
             .When(a => a.EndsAt is not null);
@@ -36,6 +36,10 @@ public class CreateQuizValidator : AbstractValidator<CreateQuizDto>
                 .Must(x => x.All(char.IsAsciiLetterOrDigit))
                 .WithMessage("'{PropertyName}' must be alpha-numeric");
         });
+
+        RuleFor(x => x)
+            .MustAsync(async (dto, token) => await service.ExistAsync(dto.Title, token) is false)
+            .WithMessage("Quiz title must be unique");
 
     }
 }

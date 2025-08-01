@@ -4,25 +4,26 @@ POST {{Host}}/api/quiz
 Content-Type: application/json
 
 {
-    "title":"Quiz 2",
+    "title":"Quiz 4",
     "description": "Full quiz part",
     "state": 1,
     "StartsAt":"2025-08-01T12:00:00+05:00",
     "EndsAt":"2025-08-01T12:00:00+05:00",
-    "IsPrivate":true
+    "IsPrivate":true,
+    "password":"1859kd"
 }
 ###
 GET {{Host}}/api/quiz
 ###
-GET {{Host}}/api/quiz/3
+GET {{Host}}/api/quiz/2
 ###
-PUT  {{Host}}/api/quiz/2
+PUT  {{Host}}/api/quiz/1
 Content-Type: application/json
 
 {
-    "title":"updated quiz 2",
+    "title":"Quiz 4",
     "description": "Full quiz part",
-    "state": 0
+    "state":"active"  
 }
 
 
