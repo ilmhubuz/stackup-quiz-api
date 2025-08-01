@@ -1,79 +1,43 @@
 ## Build results
 bin/
 obj/
-[Bb]uild/
-[Ll]og/
-[Ll]ogs/
-*.log
 
 ## User-specific files
-*.suo
 *.user
+*.suo
 *.userosscache
 *.sln.docstates
 
-## VS Code settings
+## Rider/JetBrains
+.idea/
+
+## VS Code
 .vscode/
 
-## Rider settings
-.idea/
+## ASP.NET scaffolding
+ScaffoldingReadMe.txt
 
-## Visual Studio temporary files
-*.vs/
-.vs/
+## Logs
+*.log
 
-## OS-specific files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+## Secrets
+appsettings.Development.json
+secrets.json
 
-## Package managers
-packages/
-*.nupkg
-*.snupkg
-
-## Compiled DLLs
-*.dll
-*.exe
-*.app
+## Dotnet tools
 *.pdb
-
-## NuGet
-project.lock.json
-project.fragment.lock.json
-*.nuspec
-
-## Entity Framework
-Migrations/
-
-## Publish output
-publish/
-out/
-artifacts/
-
-## Coverage & test results
-TestResults/
-*.coverage
-*.coveragexml
-*.trx
-
-## Others
-*.cache
 *.db
+*.DS_Store
 *.bak
-*.tmp
-*.swp
 
-# JetBrains Rider
-.idea/
-*.sln.iml
+## Environment
+.env
 
-# Resharper
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-*.DotCover
+## Dependency folders
+node_modules/
 
-# GitHub Copilot secret storage.
-copilot-secrets.json
+## Auto-generated
+wwwroot/lib/
+
+## Test Results
+TestResults/
