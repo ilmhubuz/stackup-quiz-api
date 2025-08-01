@@ -1,0 +1,43 @@
+## Build results
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider/JetBrains
+.idea/
+
+## VS Code
+.vscode/
+
+## ASP.NET scaffolding
+ScaffoldingReadMe.txt
+
+## Logs
+*.log
+
+## Secrets
+appsettings.Development.json
+secrets.json
+
+## Dotnet tools
+*.pdb
+*.db
+*.DS_Store
+*.bak
+
+## Environment
+.env
+
+## Dependency folders
+node_modules/
+
+## Auto-generated
+wwwroot/lib/
+
+## Test Results
+TestResults/
