@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Stackup.Quiz.Api.Dtos;
 using Stackup.Quiz.Api.Models;

@@ -13,9 +13,9 @@ public class QuizService(IMapper mapper) : IQuizService
 
     public ValueTask<Models.Quiz> CreateQuizAsync(CreateQuiz quiz, CancellationToken cancellationToken = default)
     {
-        if(quizes.ContainsKey(quiz.Title))
+        if (quizes.ContainsKey(quiz.Title))
             throw new CustomConflictException($"Quiz with title '{quiz.Title}' already exists!");
-            
+
         var newQuiz = mapper.Map<Models.Quiz>(quiz);
         newQuiz.Id = idIndex++;
 
@@ -34,7 +34,8 @@ public class QuizService(IMapper mapper) : IQuizService
         => await GetSingleOrDefaultAsync(id, cancellationToken)
             ?? throw new CustomNotFoundException($"Quiz with id '{id}' not found!");
 
-    public async ValueTask DeleteAsync(int id, CancellationToken cancellationToken = default) {
+    public async ValueTask DeleteAsync(int id, CancellationToken cancellationToken = default)
+    {
         var quiz = await GetSingleAsync(id, cancellationToken);
         quizes[quiz.Title] = quiz with { State = QuizState.Deleted };
     }
@@ -46,4 +47,7 @@ public class QuizService(IMapper mapper) : IQuizService
 
         return quizToUpdate;
     }
+
+    public ValueTask<bool> ExistsAsync(string title, CancellationToken cancellationToken = default)
+        => ValueTask.FromResult(quizes.ContainsKey(title));
 }

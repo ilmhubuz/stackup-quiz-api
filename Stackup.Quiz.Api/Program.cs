@@ -4,6 +4,9 @@ using Stackup.Quiz.Api.Dtos;
 using Stackup.Quiz.Api.Services.Abstractions;
 using Stackup.Quiz.Api.Services;
 using Stackup.Quiz.Api.Middlewares;
+using FluentValidation;
+using Stackup.Quiz.Api.Validators;
+using FluentValidation.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers()
@@ -16,6 +19,9 @@ builder.Services.AddControllers()
 
 builder.Services.AddSingleton<IQuizService, QuizService>();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddScoped<IValidator<CreateQuizDto>, CreateQuizDtoValidator>();
+builder.Services.AddScoped<IValidator<UpdateQuizDto>, UpdateQuizDtoValidator>();
+builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 
