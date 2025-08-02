@@ -19,7 +19,7 @@ PUT {{Host}}/api/quiz/2
 Content-Type: application/json
 
 {
-    "title": "Test quiz 1",
+    "title": "Test quiz 3",
     "description": "Bu test quiz",
     "state": "active"
 }

@@ -30,6 +30,7 @@ public class QuizController(
         var quizes = await quizService.GetAllAsync(abortionToken);
         return Ok(quizes.Select(mapper.Map<QuizDto>));
     }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id, CancellationToken abortionToken = default)
     {

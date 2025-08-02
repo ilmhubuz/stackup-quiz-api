@@ -30,9 +30,9 @@ public class QuizService(IMapper mapper) : IQuizService
     public ValueTask<Models.Quiz?> GetSingleOrDefaultAsync(int id, CancellationToken cancellationToken = default)
         => ValueTask.FromResult(existingQuizes.FirstOrDefault(q => q.Id == id));
 
-    public async ValueTask<Models.Quiz> GetSingleAsync(int id, CancellationToken cancellationToken = default)
-        => await GetSingleOrDefaultAsync(id, cancellationToken)
-            ?? throw new CustomNotFoundException($"Quiz with id '{id}' not found!");
+        public async ValueTask<Models.Quiz> GetSingleAsync(int id, CancellationToken cancellationToken = default)
+            => await GetSingleOrDefaultAsync(id, cancellationToken)
+                ?? throw new CustomNotFoundException($"Quiz with id '{id}' not found!");
 
     public async ValueTask DeleteAsync(int id, CancellationToken cancellationToken = default)
     {
