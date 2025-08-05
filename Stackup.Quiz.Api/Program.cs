@@ -8,6 +8,8 @@ using FluentValidation;
 using Stackup.Quiz.Api.Validators;
 using Stackup.Quiz.Api;
 using FluentValidation.AspNetCore;
+using Stackup.Quiz.Api.Repositories.Abstractions;
+using Stackup.Quiz.Api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +22,9 @@ builder.Services.AddControllers()
         jsonOptions.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter<QuizState>());
     });
 
-builder.Services.AddSingleton<IQuizService, QuizService>();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddSingleton<IQuizRepository, QuizRepository>();
+builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IValidator<CreateQuizDto>, CreateQuizDtoValidator>();
 builder.Services.AddScoped<IValidator<UpdateQuizDto>, UpdateQuizDtoValidator>();
 

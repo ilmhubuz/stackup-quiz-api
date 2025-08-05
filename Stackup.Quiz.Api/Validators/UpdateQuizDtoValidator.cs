@@ -11,8 +11,10 @@ public class UpdateQuizDtoValidator : AbstractValidator<UpdateQuizDto>
         ValidatorOptions.Global.DefaultRuleLevelCascadeMode = CascadeMode.Stop;
 
         RuleFor(x => x.Title)
+            .NotEmpty()
             .MinimumLength(4)
-            .MaximumLength(100);
+            .MaximumLength(100)
+            .WithMessage("Title is required and must be at least 4 characters.");
         RuleFor(x => x.Description)
             .MaximumLength(100);
         RuleFor(x => x.StartsAt)
@@ -32,7 +34,7 @@ public class UpdateQuizDtoValidator : AbstractValidator<UpdateQuizDto>
 
         RuleFor(x => x)
             .MustAsync(async (dto, token)
-                => await service.ExistsAsync(dto.Title, token) is false)
+                => await service.ExistsAsync(dto.Title!, token) is false)
             .WithMessage("Quiz title must be unique.");
     }   
 }

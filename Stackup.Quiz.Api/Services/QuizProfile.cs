@@ -17,5 +17,9 @@ public class QuizProfile : Profile
         CreateMap<CreateQuiz, Models.Quiz>();
         CreateMap<Models.Quiz, QuizDto>();
         CreateMap<UpdateQuiz, Models.Quiz>();
+
+        CreateMap<Entities.Quiz, Models.Quiz>();
+        CreateMap<CreateQuiz, Entities.Quiz>();
+        CreateMap<UpdateQuiz, Entities.Quiz>();
     }
 }
