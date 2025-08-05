@@ -10,6 +10,7 @@ public class CreateQuizValidator : AbstractValidator<CreateQuizDto>
         ValidatorOptions.Global.DefaultClassLevelCascadeMode = CascadeMode.Stop;
 
         RuleFor(q => q.Title)
+             .NotEmpty()
             .MinimumLength(4)
             .MaximumLength(100);
 
