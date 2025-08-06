@@ -9,5 +9,7 @@ public record Quiz(
     bool IsPrivate,
     string? Password)
 {
-     public int Id { get; set; }   
+    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset UpdatedAt { get; set; }
+    public int Id { get; set; }   
 }

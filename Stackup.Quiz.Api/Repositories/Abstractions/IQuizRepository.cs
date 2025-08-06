@@ -8,6 +8,6 @@ public interface IQuizRepository
     ValueTask<Quiz?> GetSingleOrDefaultAsync(int id, CancellationToken cancellationToken = default);
     ValueTask<Quiz> GetSingleAsync(int id, CancellationToken cancellationToken = default);
     ValueTask DeleteAsync(int id, CancellationToken cancellationToken = default);
-    ValueTask<Quiz> UpdateAsync(int id, Quiz quiz, CancellationToken cancellationToken = default);
+    ValueTask<Quiz> UpdateAsync(Quiz quiz, CancellationToken cancellationToken = default);
     ValueTask<bool> ExistsAsync(string title, CancellationToken cancellationToken = default);
 }

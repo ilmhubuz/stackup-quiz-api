@@ -10,10 +10,17 @@ using Stackup.Quiz.Api;
 using FluentValidation.AspNetCore;
 using Stackup.Quiz.Api.Repositories.Abstractions;
 using Stackup.Quiz.Api.Repositories;
+using Stackup.Quiz.Api.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+            options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+            options.SerializerSettings.DateFormatString = "yyyy-MM-dd / HH:mm:ss";
+    })
     .AddFluentValidationAsyncAutoValidation()
     .AddJsonOptions(jsonOptions =>
     {
@@ -23,10 +30,14 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddSingleton<IQuizRepository, QuizRepository>();
+builder.Services.AddScoped<IQuizRepository, QuizRepository>();
 builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IValidator<CreateQuizDto>, CreateQuizDtoValidator>();
 builder.Services.AddScoped<IValidator<UpdateQuizDto>, UpdateQuizDtoValidator>();
+
+builder.Services.AddDbContext<QuizContext>(options => options
+    .UseNpgsql(builder.Configuration.GetConnectionString("Quiz"))
+    .UseSnakeCaseNamingConvention());
 
 var app = builder.Build();
 
