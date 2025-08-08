@@ -7,7 +7,7 @@ using Stackup.Quiz.Api.Data;
 using Npgsql;
 using Microsoft.EntityFrameworkCore;
 
-public class QuizRepository(QuizContext context) : IQuizRepository
+public class QuizRepository(IQuizContext context) : IQuizRepository
 {
     public async ValueTask DeleteAsync(int id, CancellationToken cancellationToken = default)
     {
@@ -38,8 +38,6 @@ public class QuizRepository(QuizContext context) : IQuizRepository
     {
         try
         {
-            quiz.CreatedAt = DateTimeOffset.UtcNow;
-            quiz.UpdatedAt = DateTimeOffset.UtcNow;
             var entry = context.Quizzes.Add(quiz);
             await context.SaveChangesAsync(cancellationToken);
 
@@ -55,7 +53,6 @@ public class QuizRepository(QuizContext context) : IQuizRepository
     {
         try
         {
-            quiz.UpdatedAt = DateTimeOffset.UtcNow;
             await context.SaveChangesAsync(cancellationToken);
         }
         catch (DbUpdateException ex) when (ex.InnerException is PostgresException { SqlState: "23505" }) // Unique violation
